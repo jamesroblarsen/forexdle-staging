@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- fm:head -->
+  <title>[STAGING] Forexdle · Guess the currency from its history</title>
+  <meta name="description" content="A daily currency puzzle: see a currency's whole history against the US dollar and name it in six guesses. Each miss marks a key event on the chart.">
+  <meta name="author" content="James Larsen">
+  <meta name="theme-color" content="#0e1d2f">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- /fm:head -->
+  <!-- fm:kit --><!-- /fm:kit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/style.7255a54d5b.css">
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <h1>Forexdle</h1>
+      <span id="day-num" class="day"></span>
+      <button id="help-btn" class="icon-btn" aria-label="How to play">?</button>
+    </header>
+    <p class="lede">Name the currency from its value against the US dollar.</p>
+
+    <section class="card">
+      <div class="chart-head">
+        <span>Value of one unit in US dollars</span>
+        <span id="scale-note" class="muted"></span>
+      </div>
+      <div id="chart" class="chart-wrap"></div>
+      <div class="key">
+        <span><i class="swatch dashed"></i>yearly averages</span>
+        <span><i class="swatch"></i>monthly averages</span>
+        <span><i class="swatch red"></i>key events</span>
+        <span id="key-regime" class="key-zones" hidden><span><i class="swatch zone-fixed"></i>fixed</span><span><i class="swatch zone-managed"></i>managed</span><span><i class="swatch zone-free"></i>free float</span></span>
+      </div>
+    </section>
+
+    <form id="guess-form" class="guess" autocomplete="off">
+      <input id="guess-in" list="currency-list" placeholder="Type a currency…" aria-label="Your guess">
+      <button type="submit">Guess</button>
+    </form>
+    <datalist id="currency-list"></datalist>
+    <p id="guess-err" class="err" role="alert"></p>
+    <p id="left" class="muted small"></p>
+
+    <div id="result"></div>
+    <ol id="events" class="events"></ol>
+    <ul id="guesses" class="guesses"></ul>
+  </main>
+
+  <dialog id="help">
+    <h2>How to play</h2>
+    <p>The chart shows one currency's whole history: what one unit was worth in US dollars, from 1950 or the day it was born, to today.</p>
+    <p>Two key moments are marked on the chart from the start. You have seven guesses: each wrong guess gives you a clue about how the currency trades and marks one more moment. The first clue shades the chart blue to show how it was managed: fixed, managed or floating.</p>
+    <p>Each guess also says whether you picked the right part of the world.</p>
+    <p>One currency a day, the same for everyone.</p>
+    <form method="dialog"><button>Play</button></form>
+  </dialog>
+
+  <footer class="foot">
+    <p>Exchange rates: Federal Reserve H.10 (monthly, public domain) and Penn World Table 10.01 (yearly, CC BY 4.0, Feenstra, Inklaar and Timmer), via FRED.</p>
+    <p>© 2026 James Larsen · <a href="https://fourthmeridiangames.com/">Fourth Meridian Games</a></p>
+    <!-- fm:more --><!-- /fm:more -->
+  </footer>
+  <script type="module" src="assets/game.685d17034e.js"></script>
+</body>
+</html>
